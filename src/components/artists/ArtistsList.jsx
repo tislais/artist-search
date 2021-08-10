@@ -4,7 +4,8 @@ import Artist from './Artist';
 const ArtistsList = () => {
   const artist = {
     name: 'Dude',
-    id: '123'
+    id: '123',
+    country: 'USA'
   }
   return (
     <>
