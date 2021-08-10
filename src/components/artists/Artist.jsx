@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Artist = () => {
+const Artist = ({ name, id }) => {
   return (
-    <>
-    <h1>Artist</h1>
-    </>
+    <li key={id}>
+      <Link to={`/${id}/releases`}>
+        <h2>{name}</h2>
+      </Link>
+    </li>
   )
 }
 
