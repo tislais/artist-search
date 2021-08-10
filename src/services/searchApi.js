@@ -6,9 +6,10 @@ export const fetchArtists = async (search) => {
 
 export const fetchReleases = async (id) => {
   console.log(id)
-  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`)
-  const json = res.json()
+  const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`);
+  const json = await res.json();
+
   console.log(json)
-  return json;
+  return json.releases;
 }
 

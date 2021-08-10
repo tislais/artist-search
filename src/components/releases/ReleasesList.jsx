@@ -7,18 +7,17 @@ import { fetchReleases } from '../../services/searchApi';
 const ReleasesList = () => {
   const { id } = useParams()
   console.log(id)
-  const [releases, setReleases] = useState({})
-
-
+  const [releases, setReleases] = useState([])
+  
   useEffect(() => {
     fetchReleases(id)
-      .then(setReleases)
-  }, [id])
+      .then(setReleases);
+  }, [id]);
+
+  console.log('releases', releases);
 
   const releasesElements = releases.map(release => (
-
     <Release {...release} />
-
   ))
 
   return (
