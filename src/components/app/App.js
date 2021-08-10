@@ -1,13 +1,13 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Search from '../search/Search';
+import SearchPage from '../search/SearchPage';
 
 
 function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={Search}/>
+        <Route exact path="/" component={SearchPage}/>
       </Switch>
     </>
   );

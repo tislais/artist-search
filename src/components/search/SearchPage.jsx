@@ -3,7 +3,7 @@ import ArtistsList from '../artists/ArtistsList';
 import Pagination from '../pagination/Pagination';
 import SearchForm from './SearchForm';
 
-const Search = () => {
+const SearchPage = () => {
   return (
     <>
       <SearchForm />
@@ -13,4 +13,4 @@ const Search = () => {
   )
 }
 
-export default Search;
+export default SearchPage;
