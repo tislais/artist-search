@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchForm = ({ onInputChange, onFormSubmit, search }) => {
   return (
-    <form onFormSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit}>
       <input 
         type="text" 
         value={search} 
