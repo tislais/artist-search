@@ -9,7 +9,6 @@ export const fetchArtists = async (search, page) => {
 export const fetchReleases = async (id, page) => {
   const res = await fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`);
   const json = await res.json();
-  console.log(json.releases.slice((page - 1) * 5, page * 5))
   return json.releases.slice((page - 1) * 5, page * 5);
 }
 
@@ -30,8 +29,5 @@ export const fetchSong = async (artist, title) => {
     coverArt: json.GetLyricResult.LyricCovertArtUrl
   }
 
-  console.log(mungedData);
-
   return mungedData;
 }
-

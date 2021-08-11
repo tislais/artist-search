@@ -4,8 +4,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import { fetchReleases } from '../../services/searchApi';
 import Pagination from '../pagination/Pagination';
 
-
-
 const ReleasesList = () => {
   const { id } = useParams();
 
@@ -15,9 +13,7 @@ const ReleasesList = () => {
   const [releases, setReleases] = useState([])
   const [page, setPage] = useState(1)
 
-
   const handleNextClick = async () => {
-    console.log('next click');
     setPage((prevPage) => {
       return prevPage + 1
     })
@@ -33,13 +29,10 @@ const ReleasesList = () => {
     setReleases(releases);
   };
 
-
   useEffect(() => {
     fetchReleases(id, page)
       .then(setReleases);
   }, [id, page]);
-
-  console.log('releases', releases);
 
   const releasesElements = releases.map(release => (
     <Release {...release} artist={artist} />
