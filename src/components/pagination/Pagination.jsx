@@ -3,9 +3,9 @@ import React from 'react';
 const Pagination = ({ page, onNextClick, onPrevClick }) => {
   return(
     <>
-      <button className={button} onNextClick={onNextClick}>prev</button>
+      <button className={button} onClick={onPrevClick} disabled={page <= 1}>prev</button>
       <span>{page}</span>
-      <button className={button} onPrevClick={onPrevClick} disabled={page <= 1}>next</button>
+      <button className={button} onClick={onNextClick}>next</button>
     </>
   )
 }
