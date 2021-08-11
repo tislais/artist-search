@@ -1,11 +1,20 @@
 import React from 'react';
 
-const Pagination = () => {
+const Pagination = ({ page, onNextClick, onPrevClick }) => {
   return(
     <>
-      <h1>Paging Buttons</h1>
+      <button className={button} onNextClick={onNextClick}>prev</button>
+      <span>{page}</span>
+      <button className={button} onPrevClick={onPrevClick} disabled={page <= 1}>next</button>
     </>
   )
 }
+
+const button = `
+  bg-gray-300
+  rounded-full
+  py-1
+  px-4
+`;
 
 export default Pagination;
