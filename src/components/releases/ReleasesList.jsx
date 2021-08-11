@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Release from './Release';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { fetchReleases } from '../../services/searchApi';
 
 
 const ReleasesList = () => {
-  const { id } = useParams()
-  console.log(id)
+  const { id } = useParams();
+
+  let location = useLocation();
+  let artist = location.state.artist;
+
   const [releases, setReleases] = useState([])
   
   useEffect(() => {
@@ -17,12 +20,11 @@ const ReleasesList = () => {
   console.log('releases', releases);
 
   const releasesElements = releases.map(release => (
-    <Release {...release} />
+    <Release {...release} artist={artist} />
   ))
 
   return (
     <>
-      <h1>HIIII</h1>
       <ul>
         {releasesElements}
       </ul>

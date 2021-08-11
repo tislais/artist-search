@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 const Artist = ({ name, id, country }) => {
   return (
     <li key={id}>
-      <Link to={`/artist/${id}`}>
+      <Link to={{
+        pathname: `/artist/${id}`,
+        state: {
+          artist: name
+        }}}>
         <h2>{name}</h2>
         <p>{country}</p>
       </Link>
@@ -13,3 +17,4 @@ const Artist = ({ name, id, country }) => {
 }
 
 export default Artist;
+
