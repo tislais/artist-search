@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchArtists } from '../../services/searchApi';
 import ArtistsList from '../artists/ArtistsList';
 import Pagination from '../pagination/Pagination';
@@ -20,15 +20,28 @@ const SearchPage = () => {
     setArtists(artists);
   }
 
-  const handleNextClick = () => {
-    setPage((prevPage) => prevPage + 1)
+  const handleNextClick = async () => {
+    console.log('next click');
+    setPage((prevPage) => {
+      return prevPage + 1
+    })
+    const artists = await fetchArtists(search, page);
+    setArtists(artists);
   };
 
-  const handlePrevClick = () => {
+  const handlePrevClick = async () => {
     setPage((prevPage) => {
       return prevPage - 1
     })
+    const artists = await fetchArtists(search, page);
+    setArtists(artists);
   };
+
+  // useEffect( () => {
+  //   setPage(page)
+  //   fetchArtists(search, page)
+  //   .then(setArtists);
+  // }, [search, artists, page]);
 
   return (
     <>

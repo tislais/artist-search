@@ -3,7 +3,6 @@ import parser from 'fast-xml-parser';
 export const fetchArtists = async (search, page) => {
   const res = await fetch(`http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&limit=100`);
   const json = await res.json();
-  console.log(json.artists.slice((page - 1) * 10, page * 10));
   return json.artists.slice((page - 1) * 10, page * 10);
 }
 
