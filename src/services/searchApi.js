@@ -18,6 +18,7 @@ export const fetchRecordings = async (id) => {
   return json.recordings;
 }
 
-// export const fetchSong = async (artist, title) => {
-//   const res = await fetch(`http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
-// }
+export const fetchSong = async (artist, title) => {
+  const res = await fetch(`http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
+  return res;
+}
