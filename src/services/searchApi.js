@@ -1,3 +1,5 @@
+import parser from 'fast-xml-parser';
+
 export const fetchArtists = async (search) => {
   const res = await fetch(`http://musicbrainz.org/ws/2/artist?query=${search}&fmt=json&limit=25`);
   const json = await res.json();
@@ -19,6 +21,9 @@ export const fetchRecordings = async (id) => {
 }
 
 export const fetchSong = async (artist, title) => {
-  const res = await fetch(`http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
-  return res;
+  const res = await fetch(`https://vast-thicket-01998.herokuapp.com/http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
+  const json = parser.parse(res.toString())
+  console.log(json)
+  return json;
 }
+
