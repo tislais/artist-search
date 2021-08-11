@@ -22,8 +22,16 @@ export const fetchRecordings = async (id) => {
 
 export const fetchSong = async (artist, title) => {
   const res = await fetch(`https://vast-thicket-01998.herokuapp.com/http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
-  const json = parser.parse(res.toString())
-  console.log(json)
-  return json;
+  const text = await res.text();
+  const json = parser.parse(text)
+
+  const mungedData= {
+    lyrics: json.GetLyricResult.Lyric,
+    coverArt: json.GetLyricResult.LyricCovertArtUrl
+  }
+
+  console.log(mungedData);
+
+  return mungedData;
 }
 
