@@ -12,9 +12,12 @@ export const fetchReleases = async (id) => {
 }
 
 export const fetchRecordings = async (id) => {
-  console.log(id);
   const res = await fetch(`http://musicbrainz.org/ws/2/recording?release=${id}&fmt=json`)
   const json = await res.json();
 
   return json.recordings;
 }
+
+// export const fetchSong = async (artist, title) => {
+//   const res = await fetch(`http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
+// }
