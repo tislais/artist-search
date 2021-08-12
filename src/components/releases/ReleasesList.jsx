@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Release from './Release';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchReleases } from '../../services/searchApi';
 import Pagination from '../pagination/Pagination';
 
 const ReleasesList = () => {
   const { artistName, artistId } = useParams();
-
-  // let location = useLocation();
-  // let artist = location.state.artist;
 
   const [releases, setReleases] = useState([])
   const [page, setPage] = useState(1)

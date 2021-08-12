@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchRecordings } from '../../services/searchApi';
 import Recording from './Recording';
 
 const RecordingsList = () => {
   const { artistName, artistId, releaseId } = useParams();
   const [recordings, setRecordings] = useState([]);
-
-  // let location = useLocation();
-  // let artist = location.state.artist;
 
   useEffect(() => {
     fetchRecordings(releaseId)
