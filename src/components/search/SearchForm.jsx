@@ -16,12 +16,19 @@ const SearchForm = ({ onInputChange, onFormSubmit, search }) => {
 
 const input = `
   border-2
+  py-1
+  px-2
+  w-4/6
 `;
 
 const button = `
   py-1
   px-6
-  rounded-full
+  ml-2
+  border-2
+  border-pink-500
+  hover:border-pink-600
+  rounded-sm
   bg-pink-500
   text-white
   font-semibold
