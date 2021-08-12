@@ -5,10 +5,10 @@ import { fetchReleases } from '../../services/searchApi';
 import Pagination from '../pagination/Pagination';
 
 const ReleasesList = () => {
-  const { artistId } = useParams();
+  const { artistName, artistId } = useParams();
 
-  let location = useLocation();
-  let artist = location.state.artist;
+  // let location = useLocation();
+  // let artist = location.state.artist;
 
   const [releases, setReleases] = useState([])
   const [page, setPage] = useState(1)
@@ -35,7 +35,7 @@ const ReleasesList = () => {
   }, [artistId, page]);
 
   const releasesElements = releases.map(release => (
-    <Release {...release} artist={artist} artistId={artistId}/>
+    <Release {...release} artistId={artistId} artistName={artistName}/>
   ))
 
   return (

@@ -4,11 +4,11 @@ import { fetchRecordings } from '../../services/searchApi';
 import Recording from './Recording';
 
 const RecordingsList = () => {
-  const { artistId, releaseId } = useParams();
+  const { artistName, artistId, releaseId } = useParams();
   const [recordings, setRecordings] = useState([]);
 
-  let location = useLocation();
-  let artist = location.state.artist;
+  // let location = useLocation();
+  // let artist = location.state.artist;
 
   useEffect(() => {
     fetchRecordings(releaseId)
@@ -16,7 +16,7 @@ const RecordingsList = () => {
   }, [releaseId])
 
   const recordingsElements = recordings.map(recording => (
-    <Recording {...recording} artist={artist} releaseId={releaseId} artistId={artistId}/>
+    <Recording {...recording} releaseId={releaseId} artistId={artistId} artistName={artistName}/>
   ))
 
   return (

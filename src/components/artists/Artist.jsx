@@ -5,7 +5,7 @@ const Artist = ({ name, id, country }) => {
   return (
     <li key={id}>
       <Link to={{
-        pathname: `/${id}`,
+        pathname: `/${name}/${id}`,
         state: {
           artist: name
         }}}>
