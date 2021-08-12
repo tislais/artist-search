@@ -33,7 +33,7 @@ export const fetchSong = async (artist, title) => {
 }
 
 export const isImage = async (id) => {
-  const res = await fetch(`http://coverartarchive.org/release/${id}/front`);
+  const res = await fetch(`https://coverartarchive.org/release/${id}/front`);
   if (res.status === 200) {
     return true;
   } else {
