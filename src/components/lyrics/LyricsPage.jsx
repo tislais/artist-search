@@ -29,7 +29,7 @@ const LyricsPage = () => {
     <>
       <h1>Hello!</h1>
       <img src={coverArt} alt={recordingTitle} />
-      <p>{lyrics}</p>
+      <p data-testid="lyrics">{lyrics}</p>
     </>
   )
 }
