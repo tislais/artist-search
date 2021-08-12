@@ -12,9 +12,9 @@ function App() {
     <>
       <Switch>
         <Route exact path="/" component={SearchPage} />
-        <Route exact path="/artist/:id" component={ReleasesList} />
-        <Route exact path="/release/:id" component={RecordingsList} />
-        <Route exact path="/recording/:id" component={LyricsPage} />
+        <Route exact path="/:artistId" component={ReleasesList} />
+        <Route exact path="/:artistId/:releaseId" component={RecordingsList} />
+        <Route exact path="/:artistId/:releaseId/:recordingId" component={LyricsPage} />
       </Switch>
     </>
   );

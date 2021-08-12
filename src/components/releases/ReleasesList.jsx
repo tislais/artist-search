@@ -5,7 +5,7 @@ import { fetchReleases } from '../../services/searchApi';
 import Pagination from '../pagination/Pagination';
 
 const ReleasesList = () => {
-  const { id } = useParams();
+  const { artistId } = useParams();
 
   let location = useLocation();
   let artist = location.state.artist;
@@ -17,7 +17,7 @@ const ReleasesList = () => {
     setPage((prevPage) => {
       return prevPage + 1
     })
-    const releases = await fetchReleases(id, page);
+    const releases = await fetchReleases(artistId, page);
     setReleases(releases);
   };
 
@@ -25,17 +25,17 @@ const ReleasesList = () => {
     setPage((prevPage) => {
       return prevPage - 1
     })
-    const releases = await fetchReleases(id, page);
+    const releases = await fetchReleases(artistId, page);
     setReleases(releases);
   };
 
   useEffect(() => {
-    fetchReleases(id, page)
+    fetchReleases(artistId, page)
       .then(setReleases);
-  }, [id, page]);
+  }, [artistId, page]);
 
   const releasesElements = releases.map(release => (
-    <Release {...release} artist={artist} />
+    <Release {...release} artist={artist} artistId={artistId}/>
   ))
 
   return (

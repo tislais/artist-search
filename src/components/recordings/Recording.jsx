@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Recording = ({id, title, artist }) => {
+const Recording = ({artistId, releaseId, id, title, artist }) => {
   return ( 
   <li key={id}>
     <Link to={{
-      pathname: `/recording/${id}`,
+      pathname: `/${artistId}/${releaseId}/${id}`,
       state: {
         artist: artist,
         title: title
