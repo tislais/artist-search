@@ -18,7 +18,7 @@ const RecordingsList = () => {
 
   return (
     <>
-      <h1>hello</h1>
+      <h1>{artistName}</h1>
       <ul>{recordingsElements}</ul>
     </>
   )
