@@ -20,7 +20,7 @@ export const fetchRecordings = async (id) => {
 }
 
 export const fetchSong = async (artist, title) => {
-  const res = await fetch(`https://vast-thicket-01998.herokuapp.com/https://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
+  const res = await fetch(`http://vast-thicket-01998.herokuapp.com/http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=${artist}&song=${title}`);
   const text = await res.text();
   const json = parser.parse(text)
 
