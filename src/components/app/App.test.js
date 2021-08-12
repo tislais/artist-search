@@ -1,8 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import { list } from 'purgecss/node_modules/postcss';
 
 describe('app component', () => {
   it('displays a bunch of artists', async () => {
@@ -20,11 +19,23 @@ describe('app component', () => {
     // fireEvent.submit(form)
     // expect(onSubmit).toHaveBeenCalledTimes(1)
 
-    const button = screen.getByTestId('form-button')
-    const ul = await screen.findByRole('list')
-    console.log(ul)
-    userEvent.click(button)
-    expect(ul).not.toBeEmptyDOMElement()
+    // const button = screen.getByTestId('form-button')
+    // const ul = await screen.findByRole('list')
+    // userEvent.click(button)
+    // expect(ul).not.toBeEmptyDOMElement()
+  })
+
+  it('displays a list of releases', async() => {
+    render(
+      <MemoryRouter initialEntries={['/070d193a-845c-479f-980e-bef15710653e']}>
+        <App />
+      </MemoryRouter>
+    )
+
+    return waitFor(async () => {
+      const ul = await screen.findByRole('list')
+      expect(ul).not.toBeEmptyDOMElement()
+    }, 5000)
   })
 })
 
