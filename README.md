@@ -15,5 +15,8 @@ Artist Songs on an Album: ``` /:artistName/:artistId/releaseId ``` <br/>
 Song Lyrics: ``` /:artistName/:artistId/releaseId/:recordingTitle/:recordingId ``` <br/>
 
 ## Team
-Tis Lais, Katherine Tam, Zach Gaines <br/>
-Mob-programmed in 2 days!
+Tis Lais<br/> 
+Katherine Tam<br/> 
+Zach Gaines <br/>
+
+###### Mob-programmed in 2 days!
