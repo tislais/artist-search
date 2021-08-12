@@ -17,8 +17,6 @@ const ReleasesList = () => {
       .then(setReleases);
   }, [id]);
 
-  console.log('releases', releases);
-
   const releasesElements = releases.map(release => (
     <Release {...release} artist={artist} />
   ))

@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { isImage } from '../../services/searchApi';
 
 const Release = ({ id, title, artist }) => {
+  const [image, setImage] = useState(true);
+
+
+  useEffect(() => {
+    isImage(id).then(setImage);
+  }, [id]);
+
 
   return (
     <li key={id}>
@@ -12,7 +20,10 @@ const Release = ({ id, title, artist }) => {
         }
       }}>
         <h1>{title}</h1>
-        <img src={`http://coverartarchive.org/release/${id}/front`} alt={title + ' image'} />
+        { image
+          ? <img className="w-48 h-48" src={`http://coverartarchive.org/release/${id}/front`} alt={title + ' image'} />
+          : <div className="w-48 h-48 bg-gray-300 text-gray-400 flex justify-center items-center">No Image</div>
+        }
       </Link>
     </li>
   )
