@@ -25,9 +25,9 @@ describe('app component', () => {
     // expect(ul).not.toBeEmptyDOMElement()
   })
 
-  it('displays a list of releases', async() => {
+  it('displays a list of releases', async () => {
     render(
-      <MemoryRouter initialEntries={['/070d193a-845c-479f-980e-bef15710653e']}>
+      <MemoryRouter initialEntries={['/Prince/070d193a-845c-479f-980e-bef15710653e']}>
         <App />
       </MemoryRouter>
     )
