@@ -21,7 +21,6 @@ const SearchPage = () => {
   }
 
   const handleNextClick = async () => {
-    console.log('next click');
     setPage((prevPage) => {
       return prevPage + 1
     })
@@ -37,19 +36,13 @@ const SearchPage = () => {
     setArtists(artists);
   };
 
-  // useEffect( () => {
-  //   setPage(page)
-  //   fetchArtists(search, page)
-  //   .then(setArtists);
-  // }, [search, artists, page]);
-
   return (
     <>
-      <SearchForm 
-        onInputChange={handleInputChange} 
+      <SearchForm
+        onInputChange={handleInputChange}
         onFormSubmit={handleFormSubmit}
         search={search} />
-      <Pagination 
+      <Pagination
         page={page}
         onNextClick={handleNextClick}
         onPrevClick={handlePrevClick} />

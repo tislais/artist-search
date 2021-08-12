@@ -2,23 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { isImage } from '../../services/searchApi';
 
-const Release = ({ id, title, artist }) => {
-  const [image, setImage] = useState(true);
-
-
+const Release = ({ artistName, artistId, id, title }) => {
+  const [image, setImage] = useState(null);
+  
   useEffect(() => {
     isImage(id).then(setImage);
   }, [id]);
 
-
   return (
     <li key={id}>
-      <Link to={{
-        pathname: `/release/${id}`,
-        state: {
-          artist: artist
-        }
-      }}>
+      <Link to={`/${artistName}/${artistId}/${id}`}>
         <h1>{title}</h1>
         { image
           ? <img className="w-48 h-48" src={`http://coverartarchive.org/release/${id}/front`} alt={title + ' image'} />

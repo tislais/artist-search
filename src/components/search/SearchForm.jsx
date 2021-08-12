@@ -2,13 +2,14 @@ import React from 'react';
 
 const SearchForm = ({ onInputChange, onFormSubmit, search }) => {
   return (
-    <form onSubmit={onFormSubmit}>
-      <input 
-        type="text" 
-        value={search} 
-        onChange={onInputChange} 
+    <form data-testid="form" onSubmit={onFormSubmit}>
+      <input
+        placeholder="Search an Artist"
+        type="text"
+        value={search}
+        onChange={onInputChange}
         className={input} />
-      <button className={button}>Go</button>
+      <button data-testid="form-button" className={button}>Go</button>
     </form>
   )
 }
