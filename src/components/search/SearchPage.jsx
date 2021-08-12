@@ -37,17 +37,25 @@ const SearchPage = () => {
   };
 
   return (
-    <>
+    <section className="p-8 flex flex-col justify-center gap-4">
+      <h1 className="text-3xl">Artist Search</h1>
       <SearchForm
         onInputChange={handleInputChange}
         onFormSubmit={handleFormSubmit}
         search={search} />
-      <Pagination
-        page={page}
-        onNextClick={handleNextClick}
-        onPrevClick={handlePrevClick} />
-      <ArtistsList artists={artists} />
-    </>
+      {artists.length > 0
+        ? (
+          <>
+            <Pagination
+              page={page}
+              onNextClick={handleNextClick}
+              onPrevClick={handlePrevClick} />
+            <ArtistsList artists={artists} />
+          </>
+        )
+        : <></>
+      }
+    </section>
   )
 }
 

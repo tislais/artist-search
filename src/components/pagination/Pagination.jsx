@@ -1,12 +1,18 @@
 import React from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+
 
 const Pagination = ({ page, onNextClick, onPrevClick }) => {
-  return(
-    <>
-      <button className={button} onClick={onPrevClick} disabled={page <= 1}>prev</button>
+  return (
+    <section className="flex-row flex gap-2">
+      <button className={button} onClick={onPrevClick} disabled={page <= 1}>
+        <ChevronLeftIcon className="h-4" />
+      </button>
       <span>{page}</span>
-      <button className={button} onClick={onNextClick}>next</button>
-    </>
+      <button className={button} onClick={onNextClick}>
+        <ChevronRightIcon className="h-4" />
+      </button>
+    </section>
   )
 }
 
@@ -14,7 +20,7 @@ const button = `
   bg-gray-300
   rounded-full
   py-1
-  px-4
+  px-1
 `;
 
 export default Pagination;
