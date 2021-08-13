@@ -1,12 +1,12 @@
 # Artist Search
 
-Checkout the discography of any artist of your choice, <br />
+Checkout the discography of an artist of choice, <br />
 Get jiggy with all the songs in an album, <br /> 
-Or just sing along with the lyrics to your favorite songs!
+Or rock out to the lyrics of your favorite songs!
 
 ## APIs
 Music Brainz <br/>
-Chart Lyrics
+Chart Lyrics (some lyrics may not render)
 
 ## Endpoints
 Artist Search: ``` / ``` <br/>
